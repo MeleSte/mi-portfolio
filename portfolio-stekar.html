@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex"><!-- quitar al publicar -->
+<meta name="color-scheme" content="light">
+<title>María Elena Stekar — Diseñadora UX/UI</title>
+<meta name="description" content="Portfolio de María Elena Stekar, diseñadora UX/UI. Branding, diseño gráfico y diseño web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<style>
+:root{
+ /* tokens: todo el color vive acá */
+ --blue:#2867c5; --white:#FFFFFF; --gray:#EEF0F7; --gray-2:#DDE0F0; --ink:#0E0E24; --muted:#4A4A66;
+ --font:"DM Sans", sans-serif;
+ --pad:clamp(20px,5vw,72px); --gap:clamp(20px,3vw,48px);
+ color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:68px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.6 var(--font);font-stretch:100%}
+h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:var(--pad)}
+section{padding-block:clamp(56px,9vw,128px)}
+
+/* display: condensada, mayúsculas */
+.d{font-family:var(--font);font-stretch:62%;font-weight:900;line-height:.88;letter-spacing:0}
+.eyebrow{font-size:14px;font-weight:600;color:currentColor;opacity:.8;margin-bottom:16px}
+.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.5;max-width:46ch}
+
+/* header */
+.bar{position:sticky;top:0;z-index:30;background:var(--white);border-bottom:1px solid var(--gray-2)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--blue)}
+.menu{display:flex;gap:clamp(20px,3.4vw,44px)}
+.menu a{font-weight:500;font-size:14px;letter-spacing:.1em;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a.on{color:var(--blue);border-color:var(--blue)}
+.tog{display:none;position:relative;z-index:2;width:48px;height:48px;border:0;background:none;color:var(--blue);cursor:pointer;padding:0;margin-right:-10px}
+.tog i{position:absolute;left:11px;right:11px;height:3px;background:currentColor;transition:.25s}
+.tog i:nth-child(1){top:16px}.tog i:nth-child(2){top:23px}.tog i:nth-child(3){top:30px}
+.open .tog{color:var(--white)}
+.open .tog i:nth-child(1){top:23px;transform:rotate(45deg)}.open .tog i:nth-child(2){opacity:0}.open .tog i:nth-child(3){top:23px;transform:rotate(-45deg)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border:2px solid var(--blue);background:var(--blue);color:var(--white);font:500 15px var(--font);letter-spacing:.2em;text-decoration:none;cursor:pointer;transition:background .15s,color .15s;border-radius: 4px;}
+.btn:hover{background:var(--white);color:var(--blue)}
+.btn.line{background:transparent;color:var(--blue)}.btn.line:hover{background:var(--blue);color:var(--white)}
+.on-blue .btn{background:var(--white);color:var(--blue);border-color:var(--white)}
+.on-blue .btn:hover{background:transparent;color:var(--white)}
+.on-blue .btn.line{background:transparent;color:var(--white)}.on-blue .btn.line:hover{background:var(--white);color:var(--blue)}
+
+/* placeholders de imagen — para usar la imagen final: style="--img:url('img/archivo.jpg')" en cada figure.ph */
+.ph{position:relative;display:grid;place-items:end start;padding:16px;aspect-ratio:var(--ar,4/5);background:var(--gray-2) var(--img,none) center/cover no-repeat;color:var(--ink);font-size:13px;font-weight:600;overflow:hidden;border-radius: 4px;}
+.ph span{background:var(--white);color:var(--ink);padding:4px 10px}
+.on-blue .ph{background-color:rgba(255,255,255,.16)}
+.on-blue .ph span{background:var(--blue);color:var(--white)}
+.ph:not([style*="--img"])::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent calc(50% - .5px),rgba(14,14,36,.18) 50%,transparent calc(50% + .5px))}
+.on-blue .ph:not([style*="--img"])::before{background:linear-gradient(135deg,transparent calc(50% - .5px),rgba(255,255,255,.35) 50%,transparent calc(50% + .5px))}
+.ph span{position:relative}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,88px) clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--gap);align-items:end}
+.hero h1{font-size:min(130px,10.5vw);color:var(--blue);margin-bottom:28px}
+.hero .arrow{display:block;font-size:clamp(44px,6vw,80px);line-height:1;color:var(--blue);font-weight:300;margin-top:clamp(20px,3vw,40px)}
+.hero .lead{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:36px;padding-top:20px;border-top:2px solid var(--blue);font-size:15px;color:var(--muted)}
+.facts b{color:var(--ink)}
+.clients{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.clients a{padding:8px 18px;border:1px solid var(--muted);font-weight:500;font-size:13px;text-decoration:none;border-radius: 4px;letter-spacing: .1em}
+.clients a:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* trabajos */
+.worksbar{background:var(--blue);color:var(--white);padding-block:clamp(28px,4vw,56px)}
+.worksbar .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.worksbar .wrap{container-type:inline-size}
+.worksbar h2{font-size:min(clamp(72px,15vw,220px),21cqw)}
+.worksbar p{font-size:15px;max-width:24ch;opacity:.85;text-align:right}
+.proj{padding-block:clamp(48px,7vw,104px)}
+.proj.gray{background:var(--gray)}
+.proj.blue{background:var(--blue);color:var(--white)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
+.proj.rev .split>figure{order:2}
+.proj h3{font-size:min(clamp(56px,8vw,120px),calc((100vw - 2*var(--pad))/5.3));margin-bottom:12px}
+.proj.gray h3{color:var(--blue)}
+.proj .sub{font-size:clamp(19px,2vw,26px);font-weight:700;line-height:1.2;margin-bottom:18px;max-width:28ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tags li{padding:4px 12px;border:1.5px solid currentColor;font-size:13px;font-weight:600;border-radius: 4px;}
+.proj p.d-text{max-width:52ch;opacity:.92}
+.proj details{margin-top:20px;border-top:1.5px solid currentColor;padding-top:6px;max-width:56ch}
+.proj summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:700;font-size:15px}
+.proj details ul{display:grid;gap:10px;padding:6px 0 4px;font-size:15px}
+.proj details li{padding-left:18px;position:relative}
+.proj details li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background: var(--ink);border-radius: 50%}
+.proj .go{display:inline-block;margin-top:22px;font-weight:700;font-size:15px;text-underline-offset:4px}
+
+/* servicios */
+.svc h2{font-size:clamp(44px,6vw,80px);color:var(--blue);margin-bottom:clamp(24px,4vw,48px)}
+.svc-list{border-top:1px solid var(--muted)}
+.svc-list li{display:grid;grid-template-columns:1.4fr 1fr;gap:8px var(--gap);align-items:center;padding:clamp(14px,2vw,26px) 0;border-bottom:1px solid var(--muted);transition:background .15s,color .15s,padding .15s}
+.svc-list li:hover{background:var(--blue);color:var(--white);padding-inline:clamp(12px,2vw,28px)}
+.svc-list h3{font-size:clamp(52px,10vw,150px);line-height:.9}
+.svc-list p{font-size:16px;max-width:38ch}
+.svc-list small{display:block;margin-top:6px;font-size:14px;font-weight:600;opacity:.75}
+
+/* cv */
+.cv{background:var(--gray)}
+.cvgrid{display:grid;grid-template-columns:minmax(270px,.7fr) 1.6fr;gap:var(--gap);align-items:start}
+.cvhead{position:sticky;top:96px;color:var(--blue)}
+.cvhead h2{font-size:clamp(120px,22vw,180px);margin-bottom:20px}
+.cvhead .ph{max-width:260px;--ar:4/5}
+.cvhead .name{margin-top:14px;color:var(--ink);font-weight:800;font-size:19px;line-height:1.2}
+.cvhead .name span{display:block;font-weight:500;font-size:15px;color:var(--muted)}
+.cvbody h3{font-size:clamp(34px,4.4vw,56px);color:var(--blue);margin:clamp(40px,6vw,72px) 0 18px}
+.cvbody h3:first-child{margin-top:0}
+.cvbody .bio p{max-width:60ch}.cvbody .bio p+p{margin-top:14px}
+.cvbody .bio p:first-child{font-size:clamp(19px,2vw,24px);line-height:1.4;font-weight:600}
+.tl{border-top:2px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:150px 1fr;gap:4px 28px;padding:20px 0;border-bottom:1px solid var(--gray-2);border-bottom-color:rgba(14,14,36,.2)}
+.tl time{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:30px;line-height:1;color:var(--blue);text-transform:uppercase}
+.tl h4{margin:0;font-size:19px;line-height:1.3;font-weight:800}
+.tl h4 span{display:block;font-weight:500;font-size:15px;color:var(--muted)}
+.tl p{grid-column:2;font-size:15.5px;color:var(--muted);margin-top:4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:28px}
+.cols h4{margin:0 0 10px;font-size:15px;font-weight:800;color:var(--blue);padding-bottom:8px;border-bottom:2px solid var(--blue)}
+.cols p,.cols li{font-size:15.5px;line-height:1.5}
+.cols ul{display:grid;gap:4px}
+
+/* contacto */
+.contact{background:var(--blue);color:var(--white);text-align:center}
+.contact .wrap{display:grid;justify-items:center;gap:28px}
+.contact .wrap{container-type:inline-size}
+.contact h2{font-size:min(clamp(60px,12vw,190px),15cqw);max-width:11ch}
+.contact .lead{opacity:.92}
+.contact .cta{justify-content:center;margin:0}
+footer{background:var(--ink);color:var(--white);font-size:14px;font-weight:600}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;padding-block:24px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+
+/* mobile */
+@media (max-width:860px){
+ body{font-size:16px}
+ .tog{display:block}
+ .menu{container-type:inline-size;position:fixed;inset:0;z-index:1;flex-direction:column;justify-content:center;align-items:flex-start;gap:4px;padding:80px var(--pad) var(--pad);background:var(--blue);visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+ .open .menu{visibility:visible;opacity:1}.open{overflow:hidden}
+ .menu a{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:min(clamp(64px,22vw,120px),17.5cqw);line-height:.95;color:var(--white);border:0;padding:0}
+ .menu a:hover,.menu a.on{color:var(--white);opacity:.7;border:0}
+ .hero .wrap,.split,.cvgrid,.svc-list li{grid-template-columns:minmax(0,1fr)}
+ .hero .wrap>div{container-type:inline-size;min-width:0}
+ .hero h1{font-size:min(clamp(60px,19vw,130px),17cqw)}
+ .hero .ph{--ar:4/3 !important}
+ .proj.rev .split>figure{order:0}
+ .worksbar .wrap{flex-direction:column;align-items:flex-start}.worksbar p{text-align:left}
+ .cvhead{position:static;display:grid;grid-template-columns:1fr auto;gap:0 20px;align-items:end}
+ .cvhead h2{margin:0}.cvhead .ph{display:none}.cvhead .name{margin:0;text-align:right}
+ .tl li{grid-template-columns:1fr}.tl p{grid-column:1}
+}
+@media (max-width:480px){.btn{max-width:100%;padding:0 18px;letter-spacing:.1em;text-align:center;overflow-wrap:anywhere}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{.bar,.contact,footer,.worksbar,.proj,.svc,.hero{display:none}.cv{background:#fff}.cvhead{position:static}}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap">
+ <a class="logo" href="#top">María Elena Stekar</a>
+ <button class="tog" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><i></i><i></i><i></i></button>
+ <nav class="menu" id="menu" aria-label="Principal">
+  <a href="#trabajos">Trabajos</a><a href="#servicios">Servicios</a><a href="#cv">CV</a><a href="#contacto">Contacto</a>
+ </nav>
+</div></header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+ <div>
+  <h1 class="d">Diseñadora<br>UX/UI</h1>
+  <p class="lead">Branding, brandbooks, presentaciones y sitios que se destacan con identidad y presencia. Interfaces claras, sistemas consistentes y piezas listas para producción.</p>
+  <div class="cta"><a class="btn" href="#trabajos">Ver trabajos</a><a class="btn line" href="#contacto">Contacto</a></div>
+  <p class="facts"><span><b>+20 años</b> de trayectoria</span><span><b>Buenos Aires</b>, Argentina</span><span><b>Licenciada</b> en Diseño</span></p>
+  <nav class="clients" aria-label="Proyectos destacados"><a href="#vrein">Vrein.ai</a><a href="#uami">UAMI.AI</a><a href="#megatone">Megatone</a><a href="#foton">Foton Line</a><a href="#km40">KM40ECO</a></nav>
+ </div>
+ <figure class="ph" style="--img:url('images/hero.jpg')"><span>Imagen · retrato / composición</span></figure>
+</div></section>
+
+<!-- TRABAJOS -->
+<div class="worksbar" id="trabajos"><div class="wrap">
+ <h2 class="d">Trabajos</h2>
+ <p>Selección de proyectos de marca, interfaz y web.</p>
+</div></div>
+
+<article class="proj gray" id="vrein"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/1.jpg')"><span>Vrein.ai · brandbook, landing y CRM</span></figure>
+ <div>
+  <ul class="tags"><li>Identidad de marca</li><li>Brandbook</li><li>Diseño web</li><li>Redes sociales</li><li>Flujos creativos con IA</li></ul>
+  <h3 class="d">Vrein.ai</h3>
+  <p class="sub">Plataforma de Marketing Automation e Inteligencia Artificial</p>
+  <p class="d-text">Desarrollo de branding e identidad visual, definiendo una marca coherente con su propósito. Desde 2017 acompaño su crecimiento como UI Designer y maquetadora.</p>
+  <details open><summary>Qué hice</summary><ul>
+   <li>Brandbook completo: sistema de color, tipografía y uso de logo, como estándar para materiales internos y externos.</li>
+   <li>Diseño de sitio web, landing pages, CRM y campañas de email, con una experiencia digital orientada a conversión.</li>
+   <li>Interfaces y experiencia de usuario para CRM/CRP, centradas en segmentación, automatización y claridad operativa.</li>
+   <li>Renders interactivos en HTML/CSS de componentes de UI, fieles a los tokens del manual de marca, para validar piezas con marketing.</li>
+   <li>Videos demostrativos del agente, contenido para redes y slides para Nueral, su asistente virtual de IA.</li>
+   <li>Copy institucional (sección Corporativos) y entregas iterativas con feedback de marketing y producto.</li>
+  </ul></details>
+  <a class="go" href="https://vrein.ai/desafio.html" target="_blank">vrein.ai ↗</a>
+ </div>
+</div></article>
+
+<article class="proj blue on-blue rev" id="uami"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/2.png')"><span>UAMI.AI · contenido para redes</span></figure>
+ <div>
+  <ul class="tags"><li>Diseño para redes</li><li>Flujos creativos con IA</li></ul>
+  <h3 class="d">UAMI.AI</h3>
+  <p class="sub">Soluciones de inteligencia artificial conversacional para empresas</p>
+  <p class="d-text">Producción de contenido audiovisual para redes sociales, alineado con la estrategia digital y el posicionamiento de marca.</p>
+  <a class="go" href="https://uami.ai" target="_blank">uami.ai ↗</a>
+ </div>
+</div></article>
+
+<article class="proj gray" id="megatone"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/3.jpg')"><span>Megatone · ecommerce mobile</span></figure>
+ <div>
+  <ul class="tags"><li>Diseño mobile</li><li>Diseño web</li><li>Ecommerce</li></ul>
+  <h3 class="d">Megatone</h3>
+  <p class="sub">Electrónica Megatone S.R.L. · Tecnología, electrodomésticos y artículos para el hogar</p>
+  <p class="d-text">Diseño, implementación y puesta en marcha del ecommerce en VTEX.</p>
+  <a class="go" href="https://www.electronicamegatonesrl.com/" target="_blank">electronicamegatonesrl.com ↗</a>
+ </div>
+</div></article>
+
+<article class="proj blue on-blue rev" id="foton"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/4.jpg')"><span>Foton Line · sitio</span></figure>
+ <div>
+  <ul class="tags"><li>Diseño web</li></ul>
+  <h3 class="d">Foton Line</h3>
+  <p class="sub">Empresa dedicada a la fotografía de eventos deportivos</p>
+  <p class="d-text">Diseño y construcción del sitio web.</p>
+  <a class="go" href="https://fotonline.com.ar" target="_blank">fotonline.com.ar ↗</a>
+ </div>
+</div></article>
+
+<article class="proj gray" id="km40"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/5.png')"><span>KM40ECO · sitio y presentaciones</span></figure>
+ <div>
+  <ul class="tags"><li>Diseño web</li><li>Presentaciones comerciales</li></ul>
+  <h3 class="d">KM40ECO</h3>
+  <p class="sub">Ecosistema de experiencias, diseño y producción</p>
+  <p class="d-text">Diseño y construcción del sitio, más presentaciones comerciales para turismo.</p>
+  <a class="go" href="https://www.km40eco.com.ar" target="_blank">km40eco.com.ar ↗</a>
+ </div>
+</div></article>
+
+<!-- SERVICIOS -->
+<section class="svc" id="servicios"><div class="wrap">
+ <h2 class="d">Servicios</h2>
+ <ul class="svc-list">
+  <li><h3 class="d">UX/UI Design</h3><p>Interfaces claras y sistemas de diseño consistentes para plataformas web y aplicaciones.<small>Vrein.ai · Megatone</small></p></li>
+  <li><h3 class="d">Branding</h3><p>Identidad visual, brandbooks y guías de uso que sostienen una marca coherente.<small>Vrein.ai</small></p></li>
+  <li><h3 class="d">Graphic Design</h3><p>Presentaciones, piezas para redes y materiales de comunicación consistentes con la marca.<small>UAMI.AI · KM40ECO</small></p></li>
+  <li><h3 class="d">Web Design</h3><p>Sitios, landing pages y ecommerce, de la estructura a la maquetación final.<small>Foton Line · Megatone · KM40ECO</small></p></li>
+ </ul>
+</div></section>
+
+<!-- CV -->
+<section class="cv" id="cv"><div class="wrap cvgrid">
+ <div class="cvhead">
+  <h2 class="d">CV</h2>
+  <figure class="ph" style="--img:url('images/yo.jpg')"><span>Retrato</span></figure>
+  <p class="name">María Elena Stekar<span>Diseñadora UX/UI · Buenos Aires</span></p>
+ </div>
+ <div class="cvbody">
+  <div class="bio">
+   <p>Diseñadora UI y Licenciada en Diseño, con una trayectoria en agencias de publicidad, producción digital y desarrollo de marca.</p>
+   <p>Me especializo en maquetación, sistemas de diseño y producción de interfaces para plataformas web y aplicaciones. Trabajo de forma colaborativa y en ciclos cortos de feedback, con foco en la mejora continua y en entregar piezas consistentes con las guías de marca.</p>
+  </div>
+
+  <h3 class="d">Trayectoria</h3>
+  <ol class="tl">
+   <li><time>2017 – Hoy</time><h4>UI Designer / Maquetadora<span>vrein.ai · Marketing de Precisión + IA</span></h4><p>Brandbook, componentes HTML/CSS basados en tokens y piezas de comunicación para su asistente de IA.</p></li>
+   <li><time>2010 – 2017</time><h4>Diseñadora UX/UI · Producción Digital<span>Webar Interactive Solutions</span></h4><p>Interfaces para campañas y sitios de clientes, y producción digital de punta a punta junto a desarrollo.</p></li>
+   <li><time>2008 – 2010</time><h4>Diseñadora Senior · Desarrollo de sitios<span>Xaga S.R.L. / Zetut S.A.</span></h4><p>Sitios desde el wireframe hasta la entrega final, con supervisión de calidad y mentoría a diseñadores junior.</p></li>
+   <li><time>2004 – 2007</time><h4>Comunicación gráfica · Animación Flash<span>Stellarc S.A.</span></h4><p>Piezas gráficas y multimedia, animaciones en Flash y armado de HTML.</p></li>
+   <li><time>1999 – 2003</time><h4>Web, video y gráfica en TV<span>Altermedia · Control Producciones · MusicMedia</span></h4><p>Diseño web, edición de video, composición y animación 2D/3D para televisión satelital.</p></li>
+  </ol>
+
+  <h3 class="d">Formación y herramientas</h3>
+  <div class="cols">
+   <div><h4>Educación</h4><p>Licenciatura en Diseño (completa)<br>Escuela de Diseño y Artes Visuales de la Ciudad de Santa Fe</p></div>
+   <div><h4>Herramientas</h4><ul><li>Figma</li><li>Photoshop</li><li>Illustrator</li><li>After Effects</li><li>VS Code · HTML/CSS</li></ul></div>
+   <div><h4>Idiomas</h4><ul><li>Español · nativo</li><li>Inglés · intermedio</li></ul></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- CONTACTO -->
+<section class="contact on-blue" id="contacto"><div class="wrap">
+ <h2 class="d">Crear experiencias que conectan</h2>
+ <p class="lead">Transformar ideas en resultados.</p>
+ <div class="cta"><a class="btn" href="mailto:maria.stekar@gmail.com">maria.stekar@gmail.com</a><button class="btn line" type="button" id="copy">Copiar mail</button></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <span>© 2026 María Elena Stekar</span>
+ <!-- TODO: sumar links de Instagram / LinkedIn / Tienda cuando tengas las URLs -->
+ <a href="#top">Volver arriba ↑</a>
+</div></footer>
+
+<script>
+(function(){
+ var h=document.documentElement,t=document.querySelector('.tog');
+ function nav(o){h.classList.toggle('open',o);t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')}
+ t.onclick=function(){nav(!h.classList.contains('open'))};
+ var links=[].slice.call(document.querySelectorAll('.menu a'));
+ links.forEach(function(a){a.onclick=function(){nav(false)}});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')nav(false)});
+ // sección activa en el menú
+ if('IntersectionObserver' in window){
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on')});var a=map[e.target.id];if(a)a.classList.add('on')}
+  })},{rootMargin:'-45% 0px -50% 0px'});
+  ['trabajos','servicios','cv','contacto'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+ }
+ // copiar mail
+ var cp=document.getElementById('copy'),m='maria.stekar@gmail.com';
+ function say(s){cp.textContent=s;setTimeout(function(){cp.textContent='Copiar mail'},1800)}
+ cp.onclick=function(){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(function(){say('¡Copiado!')},function(){say('Copiá manualmente')})}
+  else{say('Copiá manualmente')}
+ };
+})();
+</script>
+</body>
+</html>
