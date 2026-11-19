@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex"><!-- quitar al publicar -->
+<meta name="color-scheme" content="light">
+<title>María Elena Stekar — UX/UI Designer</title>
+<meta name="description" content="Portfolio of María Elena Stekar, UX/UI designer. Branding, graphic design and web design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<style>
+:root{
+ /* tokens: todo el color vive acá */
+ --blue:#2867c5; --white:#FFFFFF; --gray:#EEF0F7; --gray-2:#DDE0F0; --ink:#0E0E24; --muted:#4A4A66;
+ --font:"DM Sans", sans-serif;
+ --pad:clamp(20px,5vw,72px); --gap:clamp(20px,3vw,48px);
+ color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:68px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.6 var(--font);font-stretch:100%}
+h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:var(--pad)}
+section{padding-block:clamp(56px,9vw,128px)}
+
+/* display: condensada, mayúsculas */
+.d{font-family:var(--font);font-stretch:62%;font-weight:900;line-height:.88;letter-spacing:0}
+.eyebrow{font-size:14px;font-weight:600;color:currentColor;opacity:.8;margin-bottom:16px}
+.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.5;max-width:46ch}
+
+/* header */
+.bar{position:sticky;top:0;z-index:30;background:var(--white);border-bottom:1px solid var(--gray-2)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--blue)}
+.menu{display:flex;gap:clamp(20px,3.4vw,44px)}
+.menu a{font-weight:500;font-size:14px;letter-spacing:.1em;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a.on{color:var(--blue);border-color:var(--blue)}
+.lang{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--muted)}
+.lang a.cur{color:var(--blue);border-color:var(--blue)}
+.tog{display:none;position:relative;z-index:2;width:48px;height:48px;border:0;background:none;color:var(--blue);cursor:pointer;padding:0;margin-right:-10px}
+.tog i{position:absolute;left:11px;right:11px;height:3px;background:currentColor;transition:.25s}
+.tog i:nth-child(1){top:16px}.tog i:nth-child(2){top:23px}.tog i:nth-child(3){top:30px}
+.open .tog{color:var(--white)}
+.open .tog i:nth-child(1){top:23px;transform:rotate(45deg)}.open .tog i:nth-child(2){opacity:0}.open .tog i:nth-child(3){top:23px;transform:rotate(-45deg)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 28px;border:2px solid var(--blue);background:var(--blue);color:var(--white);font:500 15px var(--font);letter-spacing:.2em;text-decoration:none;cursor:pointer;transition:background .15s,color .15s;border-radius: 4px;}
+.btn:hover{background:var(--white);color:var(--blue)}
+.btn.line{background:transparent;color:var(--blue)}.btn.line:hover{background:var(--blue);color:var(--white)}
+.on-blue .btn{background:var(--white);color:var(--blue);border-color:var(--white)}
+.on-blue .btn:hover{background:transparent;color:var(--white)}
+.on-blue .btn.line{background:transparent;color:var(--white)}.on-blue .btn.line:hover{background:var(--white);color:var(--blue)}
+
+/* placeholders de imagen — para usar la imagen final: style="--img:url('img/archivo.jpg')" en cada figure.ph */
+.ph{position:relative;display:grid;place-items:end start;padding:16px;aspect-ratio:var(--ar,4/5);background:var(--gray-2) var(--img,none) center/cover no-repeat;color:var(--ink);font-size:13px;font-weight:600;overflow:hidden;border-radius: 4px;}
+.ph span{background:var(--white);color:var(--ink);padding:4px 10px}
+.on-blue .ph{background-color:rgba(255,255,255,.16)}
+.on-blue .ph span{background:var(--blue);color:var(--white)}
+.ph:not([style*="--img"])::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent calc(50% - .5px),rgba(14,14,36,.18) 50%,transparent calc(50% + .5px))}
+.on-blue .ph:not([style*="--img"])::before{background:linear-gradient(135deg,transparent calc(50% - .5px),rgba(255,255,255,.35) 50%,transparent calc(50% + .5px))}
+.ph span{position:relative}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,88px) clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--gap);align-items:end}
+.hero h1{font-size:min(130px,10.5vw);color:var(--blue);margin-bottom:28px}
+.hero .arrow{display:block;font-size:clamp(44px,6vw,80px);line-height:1;color:var(--blue);font-weight:300;margin-top:clamp(20px,3vw,40px)}
+.hero .lead{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:36px;padding-top:20px;border-top:2px solid var(--blue);font-size:15px;color:var(--muted)}
+.facts b{color:var(--ink)}
+.clients{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.clients a{padding:8px 18px;border:1px solid var(--muted);font-weight:500;font-size:13px;text-decoration:none;border-radius: 4px;letter-spacing: .1em}
+.clients a:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* work */
+.worksbar{background:var(--blue);color:var(--white);padding-block:clamp(28px,4vw,56px)}
+.worksbar .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.worksbar .wrap{container-type:inline-size}
+.worksbar h2{font-size:min(clamp(72px,15vw,220px),21cqw)}
+.worksbar p{font-size:15px;max-width:24ch;opacity:.85;text-align:right}
+.proj{padding-block:clamp(48px,7vw,104px)}
+.proj.gray{background:var(--gray)}
+.proj.blue{background:var(--blue);color:var(--white)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:center}
+.proj.rev .split>figure{order:2}
+.proj h3{font-size:min(clamp(56px,8vw,120px),calc((100vw - 2*var(--pad))/5.3));margin-bottom:12px}
+.proj.gray h3{color:var(--blue)}
+.proj .sub{font-size:clamp(19px,2vw,26px);font-weight:700;line-height:1.2;margin-bottom:18px;max-width:28ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tags li{padding:4px 12px;border:1.5px solid currentColor;font-size:13px;font-weight:600;border-radius: 4px;}
+.proj p.d-text{max-width:52ch;opacity:.92}
+.proj details{margin-top:20px;border-top:1.5px solid currentColor;padding-top:6px;max-width:56ch}
+.proj summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:700;font-size:15px}
+.proj details ul{display:grid;gap:10px;padding:6px 0 4px;font-size:15px}
+.proj details li{padding-left:18px;position:relative}
+.proj details li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background: var(--ink);border-radius: 50%}
+.proj .go{display:inline-block;margin-top:22px;font-weight:700;font-size:15px;text-underline-offset:4px}
+
+/* services */
+.svc h2{font-size:clamp(44px,6vw,80px);color:var(--blue);margin-bottom:clamp(24px,4vw,48px)}
+.svc-list{border-top:1px solid var(--muted)}
+.svc-list li{display:grid;grid-template-columns:1.4fr 1fr;gap:8px var(--gap);align-items:center;padding:clamp(14px,2vw,26px) 0;border-bottom:1px solid var(--muted);transition:background .15s,color .15s,padding .15s}
+.svc-list li:hover{background:var(--blue);color:var(--white);padding-inline:clamp(12px,2vw,28px)}
+.svc-list h3{font-size:clamp(52px,10vw,150px);line-height:.9}
+.svc-list p{font-size:16px;max-width:38ch}
+.svc-list small{display:block;margin-top:6px;font-size:14px;font-weight:600;opacity:.75}
+
+/* cv */
+.cv{background:var(--gray)}
+.cvgrid{display:grid;grid-template-columns:minmax(270px,.7fr) 1.6fr;gap:var(--gap);align-items:start}
+.cvhead{position:sticky;top:96px;color:var(--blue)}
+.cvhead h2{font-size:clamp(120px,22vw,180px);margin-bottom:20px}
+.cvhead .ph{max-width:260px;--ar:4/5}
+.cvhead .name{margin-top:14px;color:var(--ink);font-weight:800;font-size:19px;line-height:1.2}
+.cvhead .name span{display:block;font-weight:500;font-size:15px;color:var(--muted)}
+.cvbody h3{font-size:clamp(34px,4.4vw,56px);color:var(--blue);margin:clamp(40px,6vw,72px) 0 18px}
+.cvbody h3:first-child{margin-top:0}
+.cvbody .bio p{max-width:60ch}.cvbody .bio p+p{margin-top:14px}
+.cvbody .bio p:first-child{font-size:clamp(19px,2vw,24px);line-height:1.4;font-weight:600}
+.tl{border-top:2px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:150px 1fr;gap:4px 28px;padding:20px 0;border-bottom:1px solid var(--gray-2);border-bottom-color:rgba(14,14,36,.2)}
+.tl time{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:30px;line-height:1;color:var(--blue);text-transform:uppercase}
+.tl h4{margin:0;font-size:19px;line-height:1.3;font-weight:800}
+.tl h4 span{display:block;font-weight:500;font-size:15px;color:var(--muted)}
+.tl p{grid-column:2;font-size:15.5px;color:var(--muted);margin-top:4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:28px}
+.cols h4{margin:0 0 10px;font-size:15px;font-weight:800;color:var(--blue);padding-bottom:8px;border-bottom:2px solid var(--blue)}
+.cols p,.cols li{font-size:15.5px;line-height:1.5}
+.cols ul{display:grid;gap:4px}
+
+/* contact */
+.contact{background:var(--blue);color:var(--white);text-align:center}
+.contact .wrap{display:grid;justify-items:center;gap:28px}
+.contact .wrap{container-type:inline-size}
+.contact h2{font-size:min(clamp(60px,12vw,190px),15cqw);max-width:11ch}
+.contact .lead{opacity:.92}
+.contact .cta{justify-content:center;margin:0}
+footer{background:var(--ink);color:var(--white);font-size:14px;font-weight:600}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;padding-block:24px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+
+/* mobile */
+@media (max-width:860px){
+ body{font-size:16px}
+ .tog{display:block}
+ .menu{container-type:inline-size;position:fixed;inset:0;z-index:1;flex-direction:column;justify-content:center;align-items:flex-start;gap:4px;padding:80px var(--pad) var(--pad);background:var(--blue);visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+ .open .menu{visibility:visible;opacity:1}.open{overflow:hidden}
+ .menu a{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:min(clamp(64px,22vw,120px),17.5cqw);line-height:.95;color:var(--white);border:0;padding:0}
+ .menu a:hover,.menu a.on{color:var(--white);opacity:.7;border:0}
+ .menu .lang{margin-top:28px;gap:10px;color:var(--white)}
+ .menu .lang a{font-stretch:100%;font-weight:600;font-size:20px;line-height:1;letter-spacing:.1em;padding:12px 4px;color:var(--white);opacity:.7;border-bottom:2px solid transparent}
+ .menu .lang a:hover{opacity:1;border-bottom-color:var(--white)}
+ .menu .lang a.cur{opacity:1;border-bottom-color:var(--white)}
+ .hero .wrap,.split,.cvgrid,.svc-list li{grid-template-columns:minmax(0,1fr)}
+ .hero .wrap>div{container-type:inline-size;min-width:0}
+ .hero h1{font-size:min(clamp(60px,19vw,130px),17cqw)}
+ .hero .ph{--ar:4/3 !important}
+ .proj.rev .split>figure{order:0}
+ .worksbar .wrap{flex-direction:column;align-items:flex-start}.worksbar p{text-align:left}
+ .cvhead{position:static;display:grid;grid-template-columns:1fr auto;gap:0 20px;align-items:end}
+ .cvhead h2{margin:0}.cvhead .ph{display:none}.cvhead .name{margin:0;text-align:right}
+ .tl li{grid-template-columns:1fr}.tl p{grid-column:1}
+}
+@media (max-width:480px){.btn{max-width:100%;padding:0 18px;letter-spacing:.1em;text-align:center;overflow-wrap:anywhere}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{.bar,.contact,footer,.worksbar,.proj,.svc,.hero{display:none}.cv{background:#fff}.cvhead{position:static}}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap">
+ <a class="logo" href="#top">María Elena Stekar</a>
+ <button class="tog" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i><i></i></button>
+ <nav class="menu" id="menu" aria-label="Main">
+  <a href="#work">Work</a><a href="#services">Services</a><a href="#cv">CV</a><a href="#contact">Contact</a>
+  <span class="lang" role="group" aria-label="Language"><a href="index.html" hreflang="es" lang="es" title="Español">ES</a><span aria-hidden="true">/</span><a href="index-en.html" hreflang="en" lang="en" title="English" class="cur" aria-current="true">EN</a></span>
+ </nav>
+</div></header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+ <div>
+  <h1 class="d">UX/UI<br>Designer</h1>
+  <p class="lead">Branding, brandbooks, presentations and websites that stand out with identity and presence. Clear interfaces, consistent systems and production-ready deliverables.</p>
+  <div class="cta"><a class="btn" href="#work">View work</a><a class="btn line" href="#contact">Contact</a></div>
+  <p class="facts"><span><b>20+ years</b> of experience</span><span><b>Buenos Aires</b>, Argentina</span><span><b>Bachelor's</b> in Design</span></p>
+  <nav class="clients" aria-label="Featured projects"><a href="#vrein">Vrein.ai</a><a href="#uami">UAMI.AI</a><a href="#megatone">Megatone</a><a href="#foton">Foton Line</a><a href="#km40">KM40ECO</a></nav>
+ </div>
+ <figure class="ph" style="--img:url('images/hero.jpg')"><span>Image · portrait / composition</span></figure>
+</div></section>
+
+<!-- WORK -->
+<div class="worksbar" id="work"><div class="wrap">
+ <h2 class="d">Work</h2>
+ <p>Selected brand, interface and web projects.</p>
+</div></div>
+
+<article class="proj gray" id="vrein"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/1.jpg')"><span>Vrein.ai · brandbook, landing page and CRM</span></figure>
+ <div>
+  <ul class="tags"><li>Brand identity</li><li>Brandbook</li><li>Web design</li><li>Social media</li><li>AI creative workflows</li></ul>
+  <h3 class="d">Vrein.ai</h3>
+  <p class="sub">Marketing Automation and Artificial Intelligence Platform</p>
+  <p class="d-text">Branding and visual identity development, defining a brand that is consistent with its purpose. Since 2017 I have supported its growth as a UI Designer and layout specialist.</p>
+  <details open><summary>What I did</summary><ul>
+   <li>Complete brandbook: color system, typography and logo usage, as the standard for internal and external materials.</li>
+   <li>Website, landing page, CRM and email campaign design, with a digital experience focused on conversion.</li>
+   <li>Interfaces and user experience for CRM/CRP, centered on segmentation, automation and operational clarity.</li>
+   <li>Interactive HTML/CSS renders of UI components, faithful to the brand manual tokens, to validate pieces with marketing.</li>
+   <li>Demo videos of the agent, social media content and slides for Nueral, its AI virtual assistant.</li>
+   <li>Institutional copy (Corporate section) and iterative deliveries with feedback from marketing and product.</li>
+  </ul></details>
+  <a class="go" href="https://vrein.ai/desafio.html" target="_blank">vrein.ai ↗</a>
+ </div>
+</div></article>
+
+<article class="proj blue on-blue rev" id="uami"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/2.png')"><span>UAMI.AI · social media content</span></figure>
+ <div>
+  <ul class="tags"><li>Social media design</li><li>AI creative workflows</li></ul>
+  <h3 class="d">UAMI.AI</h3>
+  <p class="sub">Conversational AI solutions for businesses</p>
+  <p class="d-text">Audiovisual content production for social media, aligned with the digital strategy and brand positioning.</p>
+  <a class="go" href="https://uami.ai" target="_blank">uami.ai ↗</a>
+ </div>
+</div></article>
+
+<article class="proj gray" id="megatone"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/3.jpg')"><span>Megatone · mobile ecommerce</span></figure>
+ <div>
+  <ul class="tags"><li>Mobile design</li><li>Web design</li><li>Ecommerce</li></ul>
+  <h3 class="d">Megatone</h3>
+  <p class="sub">Electrónica Megatone S.R.L. · Technology, appliances and home goods</p>
+  <p class="d-text">Design, implementation and launch of the ecommerce store on VTEX.</p>
+  <a class="go" href="https://www.electronicamegatonesrl.com/" target="_blank">electronicamegatonesrl.com ↗</a>
+ </div>
+</div></article>
+
+<article class="proj blue on-blue rev" id="foton"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/4.jpg')"><span>Foton Line · website</span></figure>
+ <div>
+  <ul class="tags"><li>Web design</li></ul>
+  <h3 class="d">Foton Line</h3>
+  <p class="sub">Sports event photography company</p>
+  <p class="d-text">Website design and build.</p>
+  <a class="go" href="https://fotonline.com.ar" target="_blank">fotonline.com.ar ↗</a>
+ </div>
+</div></article>
+
+<article class="proj gray" id="km40"><div class="wrap split">
+ <figure class="ph" style="--img:url('images/5.png')"><span>KM40ECO · website and presentations</span></figure>
+ <div>
+  <ul class="tags"><li>Web design</li><li>Sales presentations</li></ul>
+  <h3 class="d">KM40ECO</h3>
+  <p class="sub">Ecosystem of experiences, design and production</p>
+  <p class="d-text">Website design and build, plus sales presentations for tourism.</p>
+  <a class="go" href="https://www.km40eco.com.ar" target="_blank">km40eco.com.ar ↗</a>
+ </div>
+</div></article>
+
+<!-- SERVICES -->
+<section class="svc" id="services"><div class="wrap">
+ <h2 class="d">Services</h2>
+ <ul class="svc-list">
+  <li><h3 class="d">UX/UI Design</h3><p>Clear interfaces and consistent design systems for web platforms and applications.<small>Vrein.ai · Megatone</small></p></li>
+  <li><h3 class="d">Branding</h3><p>Visual identity, brandbooks and usage guidelines that sustain a coherent brand.<small>Vrein.ai</small></p></li>
+  <li><h3 class="d">Graphic Design</h3><p>Presentations, social media pieces and communication materials consistent with the brand.<small>UAMI.AI · KM40ECO</small></p></li>
+  <li><h3 class="d">Web Design</h3><p>Websites, landing pages and ecommerce, from structure to final layout.<small>Foton Line · Megatone · KM40ECO</small></p></li>
+ </ul>
+</div></section>
+
+<!-- CV -->
+<section class="cv" id="cv"><div class="wrap cvgrid">
+ <div class="cvhead">
+  <h2 class="d">CV</h2>
+  <figure class="ph" style="--img:url('images/yo.jpg')"></figure>
+  <p class="name">María Elena Stekar<span>UX/UI Designer · Buenos Aires</span></p>
+ </div>
+ <div class="cvbody">
+  <div class="bio">
+   <p>UI Designer with a Bachelor's degree in Design, with a career spanning advertising agencies, digital production and brand development.</p>
+   <p>I specialize in layout, design systems and interface production for web platforms and applications. I work collaboratively in short feedback cycles, focused on continuous improvement and on delivering pieces consistent with brand guidelines.</p>
+  </div>
+
+  <h3 class="d">Experience</h3>
+  <ol class="tl">
+   <li><time>2017 – Present</time><h4>UI Designer / Layout Specialist<span>vrein.ai · Precision Marketing + AI</span></h4><p>Brandbook, token-based HTML/CSS components and communication pieces for its AI assistant.</p></li>
+   <li><time>2010 – 2017</time><h4>UX/UI Designer · Digital Production<span>Webar Interactive Solutions</span></h4><p>Interfaces for client campaigns and websites, and end-to-end digital production alongside development.</p></li>
+   <li><time>2008 – 2010</time><h4>Senior Designer · Website Development<span>Xaga S.R.L. / Zetut S.A.</span></h4><p>Websites from wireframe to final delivery, with quality supervision and mentoring of junior designers.</p></li>
+   <li><time>2004 – 2007</time><h4>Graphic Communication · Flash Animation<span>Stellarc S.A.</span></h4><p>Graphic and multimedia pieces, Flash animations and HTML build.</p></li>
+   <li><time>1999 – 2003</time><h4>Web, Video and TV Graphics<span>Altermedia · Control Producciones · MusicMedia</span></h4><p>Web design, video editing, compositing and 2D/3D animation for satellite television.</p></li>
+  </ol>
+
+  <h3 class="d">Education &amp; Tools</h3>
+  <div class="cols">
+   <div><h4>Education</h4><p>Bachelor's in Design (completed)<br>Escuela de Diseño y Artes Visuales de la Ciudad de Santa Fe</p></div>
+   <div><h4>Tools</h4><ul><li>Figma</li><li>Photoshop</li><li>Illustrator</li><li>After Effects</li><li>VS Code · HTML/CSS</li></ul></div>
+   <div><h4>Languages</h4><ul><li>Spanish · native</li><li>English · intermediate</li></ul></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="contact on-blue" id="contact"><div class="wrap">
+ <h2 class="d">Creating experiences that connect</h2>
+ <p class="lead">Turning ideas into results.</p>
+ <div class="cta"><a class="btn" href="mailto:maria.stekar@gmail.com">maria.stekar@gmail.com</a><button class="btn line" type="button" id="copy">Copy email</button></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <span>© 2026 María Elena Stekar</span>
+ <!-- TODO: add Instagram / LinkedIn / Shop links once the URLs are ready -->
+ <a href="#top">Back to top ↑</a>
+</div></footer>
+
+<script>
+(function(){
+ var h=document.documentElement,t=document.querySelector('.tog');
+ function nav(o){h.classList.toggle('open',o);t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Close menu':'Open menu')}
+ t.onclick=function(){nav(!h.classList.contains('open'))};
+ var links=[].slice.call(document.querySelectorAll('.menu a[href^="#"]'));
+ links.forEach(function(a){a.onclick=function(){nav(false)}});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')nav(false)});
+ // active section in the menu
+ if('IntersectionObserver' in window){
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+   if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on')});var a=map[e.target.id];if(a)a.classList.add('on')}
+  })},{rootMargin:'-45% 0px -50% 0px'});
+  ['work','services','cv','contact'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+ }
+ // copy email
+ var cp=document.getElementById('copy'),m='maria.stekar@gmail.com';
+ function say(s){cp.textContent=s;setTimeout(function(){cp.textContent='Copy email'},1800)}
+ cp.onclick=function(){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(function(){say('Copied!')},function(){say('Copy manually')})}
+  else{say('Copy manually')}
+ };
+})();
+</script>
+</body>
+</html>

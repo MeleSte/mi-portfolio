@@ -28,7 +28,7 @@ a{color:inherit}
 section{padding-block:clamp(56px,9vw,128px)}
 
 /* display: condensada, mayúsculas */
-.d{font-family:var(--font);font-stretch:62%;font-weight:900;line-height:.88;letter-spacing:-.5px}
+.d{font-family:var(--font);font-stretch:62%;font-weight:900;line-height:.88;letter-spacing:0}
 .eyebrow{font-size:14px;font-weight:600;color:currentColor;opacity:.8;margin-bottom:16px}
 .lead{font-size:clamp(17px,1.7vw,21px);line-height:1.5;max-width:46ch}
 
@@ -39,6 +39,8 @@ section{padding-block:clamp(56px,9vw,128px)}
 .menu{display:flex;gap:clamp(20px,3.4vw,44px)}
 .menu a{font-weight:500;font-size:14px;letter-spacing:.1em;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
 .menu a:hover,.menu a.on{color:var(--blue);border-color:var(--blue)}
+.lang{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--muted)}
+.lang a.cur{color:var(--blue);border-color:var(--blue)}
 .tog{display:none;position:relative;z-index:2;width:48px;height:48px;border:0;background:none;color:var(--blue);cursor:pointer;padding:0;margin-right:-10px}
 .tog i{position:absolute;left:11px;right:11px;height:3px;background:currentColor;transition:.25s}
 .tog i:nth-child(1){top:16px}.tog i:nth-child(2){top:23px}.tog i:nth-child(3){top:30px}
@@ -120,7 +122,7 @@ section{padding-block:clamp(56px,9vw,128px)}
 .cvbody h3:first-child{margin-top:0}
 .cvbody .bio p{max-width:60ch}.cvbody .bio p+p{margin-top:14px}
 .cvbody .bio p:first-child{font-size:clamp(19px,2vw,24px);line-height:1.4;font-weight:600}
-.tl{border-top:1px solid var(--gray-2)}
+.tl{border-top:2px solid var(--ink)}
 .tl li{display:grid;grid-template-columns:150px 1fr;gap:4px 28px;padding:20px 0;border-bottom:1px solid var(--gray-2);border-bottom-color:rgba(14,14,36,.2)}
 .tl time{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:30px;line-height:1;color:var(--blue);text-transform:uppercase}
 .tl h4{margin:0;font-size:19px;line-height:1.3;font-weight:800}
@@ -150,10 +152,14 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  .open .menu{visibility:visible;opacity:1}.open{overflow:hidden}
  .menu a{font-family:var(--font);font-stretch:62%;font-weight:900;font-size:min(clamp(64px,22vw,120px),17.5cqw);line-height:.95;color:var(--white);border:0;padding:0}
  .menu a:hover,.menu a.on{color:var(--white);opacity:.7;border:0}
+ .menu .lang{margin-top:28px;gap:10px;color:var(--white)}
+ .menu .lang a{font-stretch:100%;font-weight:600;font-size:20px;line-height:1;letter-spacing:.1em;padding:12px 4px;color:var(--white);opacity:.7;border-bottom:2px solid transparent}
+ .menu .lang a:hover{opacity:1;border-bottom-color:var(--white)}
+ .menu .lang a.cur{opacity:1;border-bottom-color:var(--white)}
  .hero .wrap,.split,.cvgrid,.svc-list li{grid-template-columns:minmax(0,1fr)}
  .hero .wrap>div{container-type:inline-size;min-width:0}
  .hero h1{font-size:min(clamp(60px,19vw,130px),17cqw)}
- .hero .ph{--ar:4/3 !important; display:none}
+ .hero .ph{--ar:4/3 !important}
  .proj.rev .split>figure{order:0}
  .worksbar .wrap{flex-direction:column;align-items:flex-start}.worksbar p{text-align:left}
  .cvhead{position:static;display:grid;grid-template-columns:1fr auto;gap:0 20px;align-items:end}
@@ -172,6 +178,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <button class="tog" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><i></i><i></i><i></i></button>
  <nav class="menu" id="menu" aria-label="Principal">
   <a href="#trabajos">Trabajos</a><a href="#servicios">Servicios</a><a href="#cv">CV</a><a href="#contacto">Contacto</a>
+  <span class="lang" role="group" aria-label="Idioma"><a href="index.html" hreflang="es" lang="es" title="Español" class="cur" aria-current="true">ES</a><span aria-hidden="true">/</span><a href="index-en.html" hreflang="en" lang="en" title="English">EN</a></span>
  </nav>
 </div></header>
 
@@ -186,7 +193,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
   <p class="facts"><span><b>+20 años</b> de trayectoria</span><span><b>Buenos Aires</b>, Argentina</span><span><b>Licenciada</b> en Diseño</span></p>
   <nav class="clients" aria-label="Proyectos destacados"><a href="#vrein">Vrein.ai</a><a href="#uami">UAMI.AI</a><a href="#megatone">Megatone</a><a href="#foton">Foton Line</a><a href="#km40">KM40ECO</a></nav>
  </div>
- <figure class="ph" style="--img:url('images/hero.jpg')"></figure>
+ <figure class="ph" style="--img:url('images/hero.jpg')"><span>Imagen · retrato / composición</span></figure>
 </div></section>
 
 <!-- TRABAJOS -->
@@ -210,7 +217,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
    <li>Videos demostrativos del agente, contenido para redes y slides para Nueral, su asistente virtual de IA.</li>
    <li>Copy institucional (sección Corporativos) y entregas iterativas con feedback de marketing y producto.</li>
   </ul></details>
-  <a class="go" href="https://vrein.ai/desafio.html" target="_blank">vrein.ai</a>
+  <a class="go" href="https://vrein.ai/desafio.html" target="_blank">vrein.ai ↗</a>
  </div>
 </div></article>
 
@@ -221,7 +228,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
   <h3 class="d">UAMI.AI</h3>
   <p class="sub">Soluciones de inteligencia artificial conversacional para empresas</p>
   <p class="d-text">Producción de contenido audiovisual para redes sociales, alineado con la estrategia digital y el posicionamiento de marca.</p>
-  <a class="go" href="https://uami.ai" target="_blank">uami.ai</a>
+  <a class="go" href="https://uami.ai" target="_blank">uami.ai ↗</a>
  </div>
 </div></article>
 
@@ -232,7 +239,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
   <h3 class="d">Megatone</h3>
   <p class="sub">Electrónica Megatone S.R.L. · Tecnología, electrodomésticos y artículos para el hogar</p>
   <p class="d-text">Diseño, implementación y puesta en marcha del ecommerce en VTEX.</p>
-  <a class="go" href="https://www.electronicamegatonesrl.com/" target="_blank">electronicamegatonesrl.com</a>
+  <a class="go" href="https://www.electronicamegatonesrl.com/" target="_blank">electronicamegatonesrl.com ↗</a>
  </div>
 </div></article>
 
@@ -243,7 +250,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
   <h3 class="d">Foton Line</h3>
   <p class="sub">Empresa dedicada a la fotografía de eventos deportivos</p>
   <p class="d-text">Diseño y construcción del sitio web.</p>
-  <a class="go" href="https://fotonline.com.ar" target="_blank">fotonline.com.ar</a>
+  <a class="go" href="https://fotonline.com.ar" target="_blank">fotonline.com.ar ↗</a>
  </div>
 </div></article>
 
@@ -254,7 +261,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
   <h3 class="d">KM40ECO</h3>
   <p class="sub">Ecosistema de experiencias, diseño y producción</p>
   <p class="d-text">Diseño y construcción del sitio, más presentaciones comerciales para turismo.</p>
-  <a class="go" href="https://www.km40eco.com.ar" target="_blank">km40eco.com.ar</a>
+  <a class="go" href="https://www.km40eco.com.ar" target="_blank">km40eco.com.ar ↗</a>
  </div>
 </div></article>
 
@@ -263,7 +270,6 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <h2 class="d">Servicios</h2>
  <ul class="svc-list">
   <li><h3 class="d">UX/UI Design</h3><p>Interfaces claras y sistemas de diseño consistentes para plataformas web y aplicaciones.<small>Vrein.ai · Megatone</small></p></li>
-  <li><h3 class="d">AI Creative Production</h3><p>Inteligencia Artificial aplicada al diseño y la comunicación. Integración de herramientas de IA en procesos creativos, generación de contenido visual y audiovisual, desarrollo de conceptos, exploración de ideas y optimización de flujos de trabajo digitales.<small>Vrein.ai · UAMI.AI</small></p></li>
   <li><h3 class="d">Branding</h3><p>Identidad visual, brandbooks y guías de uso que sostienen una marca coherente.<small>Vrein.ai</small></p></li>
   <li><h3 class="d">Graphic Design</h3><p>Presentaciones, piezas para redes y materiales de comunicación consistentes con la marca.<small>UAMI.AI · KM40ECO</small></p></li>
   <li><h3 class="d">Web Design</h3><p>Sitios, landing pages y ecommerce, de la estructura a la maquetación final.<small>Foton Line · Megatone · KM40ECO</small></p></li>
@@ -275,7 +281,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  <div class="cvhead">
   <h2 class="d">CV</h2>
   <figure class="ph" style="--img:url('images/yo.jpg')"></figure>
-  <p class="name">María Elena Stekar<span>Diseñadora UX/UI · Buenos Aires</span><span><a href="https://wa.me/541160584681/" target="_blank" style="text-decoration: none;">Cel.: 11-6058-4681</a></span></p>
+  <p class="name">María Elena Stekar<span>Diseñadora UX/UI · Buenos Aires</span></p>
  </div>
  <div class="cvbody">
   <div class="bio">
@@ -320,7 +326,7 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
  var h=document.documentElement,t=document.querySelector('.tog');
  function nav(o){h.classList.toggle('open',o);t.setAttribute('aria-expanded',o);t.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')}
  t.onclick=function(){nav(!h.classList.contains('open'))};
- var links=[].slice.call(document.querySelectorAll('.menu a'));
+ var links=[].slice.call(document.querySelectorAll('.menu a[href^="#"]'));
  links.forEach(function(a){a.onclick=function(){nav(false)}});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')nav(false)});
  // sección activa en el menú
